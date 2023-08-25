@@ -1,0 +1,215 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/YOUR_PIPELINE/master/nextflow_schema.json",
+    "title": "Nextflow pipeline parameters",
+    "description": "This pipeline uses Nextflow and processes some kind of data. The JSON Schema was built using the nf-core pipeline schema builder.",
+    "type": "object",
+    "definitions": {
+        "input_output": {
+            "title": "Input/Output",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "bam_folder": {
+                    "type": "string",
+                    "description": "Path to the input directory with bam files.",
+                    "fa_icon": "fas fa-file-signature",
+                    "default":""
+                },
+                "out_dir": {
+                    "type": "string",
+                    "description": "The output directory where the results will be saved.",
+                    "fa_icon": "fas fa-folder-open",
+                    "default":""
+                }
+            },
+            "required": [
+                "bam_folder",
+                "out_dir"
+            ]
+        },
+        "busco_database": {
+            "title": "Busco Database information",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+               "busco_lineage": {
+                    "type": "string",
+                    "default": "eukaryota",
+                    "description" : "Lineage used by busco"
+                    
+                },
+                "busco_lineage_dir": {
+                    "type": "string",
+                    "description": "The path to Busco database.",
+                    "fa_icon": "fas fa-databas",
+                    "default":""
+                }
+            },
+            "required": [
+                "busco_lineage"
+            ]
+        },
+        "new_group_2": {
+            "title": "Options",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "adapter_filteration": {
+                    "type": "boolean",
+                    "description": "Apply Adapter Filtration"
+                },
+                "help": {
+                    "type": "boolean"
+                },
+                "dev": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "new_group_3": {
+            "title": "Sizing",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "samtools_threads": {
+                    "type": "integer",
+                    "description": "Number of threads for samtools",
+                    "default": 8,
+                    "fa_icon": "fas fa-microchip"
+                },
+                "samtools_memory": {
+                    "type": "string",
+                    "default": "16.GB",
+                    "description": "Memory needed for samtools",
+                    "fa_icon": "fas fa-microchip"
+                },
+                "hifi_adapter_threads": {
+                    "type": "integer",
+                    "description": "Number of threads for HiFiAdapter",
+                    "default": 8,
+                    "fa_icon": "fas fa-microchip"
+                },
+                "hifi_adapter_memory": {
+                    "type": "string",
+                    "default": "16.GB",
+                    "description": "Memory needed for HiFiAdapter",
+                    "fa_icon": "fas fa-microchip"
+                },
+                "genomescope_threads": {
+                    "type": "integer",
+                    "description": "Number of threads for genomescope",
+                    "default": 1,
+                    "fa_icon": "fas fa-microchip"
+                },
+                "genomescope_memory": {
+                    "type": "string",
+                    "default": "16.GB",
+                    "description": "Memory needed for genomescope",
+                    "fa_icon": "fas fa-microchip"
+                },
+                "jellyfish_threads": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Number of threads for Jellyfish"
+                },
+                "jellyfish_memory": {
+                    "type": "string",
+                    "default": "24.GB",
+                    "description": "Memory needed for Jellyfish"
+                },
+                "jellyfish_hash_size": {
+                    "type": "string",
+                    "default": "1G",
+                    "fa_icon": "fas fa-microchip",
+                    "description": "Jellyfish Hash Size"
+                },
+                "jellyfish_mer_length": {
+                    "type": "integer",
+                    "default": 21,
+                    "description" : "Jellyfish Mer Length",
+                    "fa_icon": "fas fa-microchip"
+                },
+                "ipa_jobs": {
+                    "type": "integer",
+                    "default": 4,
+                    "description": "Number of jobs for Improved Phasing Assembly (IPA)",
+                    "fa_icon": "fas fa-microchip"
+                },
+                "ipa_threads": {
+                    "type": "integer",
+                    "default": 4,
+                    "description": "Number of threads for Improved Phasing Assembly (IPA)",
+                    "fa_icon": "fas fa-microchip"
+                },
+                "ipa_memory": {
+                    "type": "string",
+                    "default": "24.GB",
+                    "description": "Memory needed for Improved Phasing Assembly (IPA)",
+                    "fa_icon": "fas fa-microchip"
+                },
+                "busco_threads": {
+                    "type": "integer",
+                    "default": 1,
+                    "fa_icon": "fas fa-microchip",
+                    "description": "Number of threads for busco"
+                },
+                "busco_memory": {
+                    "type": "string",
+                    "default": "24.GB",
+                    "description": "Memory needed for busco"
+                },
+                "quast_threads": {
+                    "type": "integer",
+                    "description": "Number of threads for Quast",
+                    "default": 1,
+                    "fa_icon": "fas fa-microchip"
+                },
+                "quast_memory": {
+                    "type": "string",
+                    "default": "16.GB",
+                    "description": "Memory needed for Quast",
+                    "fa_icon": "fas fa-microchip"
+                }
+            }
+        },
+        "technical": {
+            "title": "Technical",
+            "type": "object",
+            "description": "",
+            "default": "",
+            "properties": {
+                "storage_paths" : {
+                    "description": "Storage Paths (For NCI and Pawsey)",
+                    "type": "string"
+                },
+                "conda_cache": {
+                    "description":"CONDA Environment Cache Directory",
+                    "type": "string"
+                },
+                "singularity_cache": {
+                    "description":"Singularity cache Directory",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/input_output"
+        },
+        {
+            "$ref": "#/definitions/new_group_2"
+        },
+        {
+            "$ref": "#/definitions/new_group_3"
+        },
+        {
+            "$ref": "#/definitions/technical"
+        }
+    ]
+}
