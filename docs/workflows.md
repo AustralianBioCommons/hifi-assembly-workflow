@@ -1,8 +1,7 @@
 ---
-title: HiFi de novo genome assembly workflow documentation
+title: Workflow documentation
 description: More detailed workflow documentation, as well as descriptions of modules and execution examples on Gadi and Setonix.
 type: docs
-toc: false
 ---
 
   - [Description](#description)

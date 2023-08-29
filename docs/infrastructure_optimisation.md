@@ -1,7 +1,7 @@
 ---
-title: HiFi de novo genome assembly on NCI Gadi and Pawsey Setonix HPCs
+title: Workflow optimisation
+description: Optimisation of the workflow on NCI Gadi and Pawsey Setonix HPCs
 type: docs
-toc: false
 ---
 
 

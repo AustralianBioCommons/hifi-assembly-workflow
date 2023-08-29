@@ -1,8 +1,7 @@
 ---
-title: HiFi de novo genome assembly workflow - background documentation and recommendations
+title: Genome assembly background documentation and recommendations
 description: A primer for life scientists that would like to reuse the HiFi assembly workflow in this repository. 
 type: docs
-toc: false
 ---
 
 
@@ -15,12 +14,10 @@ The guide is split between the 3 core elements of the workflow: these being pre-
 
 This workflow is:
 - currently operational on the Gadi HPC at the National Computational Infrastructure (NCI),
-- registered in workflowhub,
-
-The plan is to convert the existing NextFlow workflow - which uses software installed in project allocation wz54 -  to use singularity containers and provision these containers to the community at NCI through the shared tool and workflow repository located in project allocation if89.
+- [registered on WorkflowHub](https://workflowhub.eu/workflows/340),
 
 
-## Stage 1: Adapter filteration and Pre-assembly quality control
+## Stage 1: Adapter filtration and pre-assembly quality control
 
 ### Overview
 *De novo* genome assembly is a complex analysis process. Adapter decontamination is very critical step in genome assembly. In this pipeline, adapter filteration through [HiFiAdapterFilt](https://github.com/sheinasim/HiFiAdapterFilt) is an optional step that can be enabled through the parameter `--adapter_filteration`. In case adapter filteration is enabled, the remaining steps in the pipeline will uses the output of this step instead of the original bam files.
@@ -40,6 +37,7 @@ To estimate genome size, you can use one of 3 approaches:
 
 :warning: **WARNING:** there are limitations to the K-mer approach, it requires a significant amount of sequence for genome size estimation.
 
+{:start="3"}
 3. **C-value estimation of genome size.** The DNA amount (pg) in the unreplicated gametic nucleus of an organism is referred to as its C-value, irrespective of the ploidy level of the taxon. There are different C-value databases for different species. If the sequencing species is not available, a close relative will provide a good estimation. 
      - The 3 popular C-value databases are:
           - For animal genomes:  http://www.genomesize.com/ 
@@ -61,7 +59,7 @@ Presence of highly repetitive regions may also complicate genome assembly. The a
 
 Initial estimates of genome size using karyotyping or other methods may not factor in genome complexity. This means that 50 - 100% more sequencing might be required for polyploid and highly repetitive genomes. Thus, understanding genome characteristics before analysis is an important step in any assembly project. It also helps to assess whether the generated sequencing data is sufficient or more required.
 
-## General recommendations for HiFi read pre-assembly QC
+### General recommendations for HiFi read pre-assembly QC
 In general, HiFi reads are ready for downstream analysis without any QC tool needed. Adapters are trimmed on the instrument and CCS will ensure that most of the sequencing noises are removed. 
 
 > Note: 
@@ -70,25 +68,17 @@ In general, HiFi reads are ready for downstream analysis without any QC tool nee
 
 The 4 recipes of success for a good assembly at pre-QC stage are:
  
-1. **Coverage**
+1. **Coverage**: Make sure there’s enough coverage: usually 10X to 15X per haplotype is recommended for building a haploid assembly. This is based on empirical evidence suggesting that this is sufficient coverage, but also, by Poisson distribution properties. i,e, for obtaining a minimum of 4 reads for 99.99% of the haplotype, one would have to sequence that haplotype to 13X coverage. Note that the current phased genome assemblers can only operate on diploid genomes.
 
-Make sure there’s enough coverage: usually 10X to 15X per haplotype is recommended for building a haploid assembly. This is based on empirical evidence suggesting that this is sufficient coverage, but also, by Poisson distribution properties. i,e, for obtaining a minimum of 4 reads for 99.99% of the haplotype, one would have to sequence that haplotype to 13X coverage. Note that the current phased genome assemblers can only operate on diploid genomes.
-
-2. **Read length**
-
-A good length library is also a factor for a successful assembly. The ideal read length depends on the repeat content of the genome. This knowledge usually comes from looking at a related species that’s been sequenced, as these will typically give you an idea of repeat length. 
+2. **Read length**: A good length library is also a factor for a successful assembly. The ideal read length depends on the repeat content of the genome. This knowledge usually comes from looking at a related species that’s been sequenced, as these will typically give you an idea of repeat length. 
 Studies on rice showed that the average read length was > 15 kbp. For humans, 13kb would usually be sufficient because it would easily span over dominant transposable elements. However, the length of transposable elements can’t be determined for unknown species. Therefore, 15+ kbp is usually a good guide across organisms when doing de novo genome assembly. Again, there is no hard and fast rule; this is an empirical observation. 
 
-3. **Quality**
-
-Usually you should aim for a median quality of Q28 for the full dataset. Most of the time a HiFi library around 15-20 kbp should generate around Q30, and so if you have Q27, you may suspect that the library may not have been great to begin with. It may still give you a good assembly, if there are enough high accuracy reads to cover the genome. For instance, the general consensus is that nanopore reads are less in quality compared to pacbio reads. However, a very high coverage of nanopore reads may give you a better assembly than an assembly using pacbio reads with less coverage. Quality is important, but at times can be overcome by increased coverage. 
+3. **Quality**: Usually you should aim for a median quality of Q28 for the full dataset. Most of the time a HiFi library around 15-20 kbp should generate around Q30, and so if you have Q27, you may suspect that the library may not have been great to begin with. It may still give you a good assembly, if there are enough high accuracy reads to cover the genome. For instance, the general consensus is that nanopore reads are less in quality compared to pacbio reads. However, a very high coverage of nanopore reads may give you a better assembly than an assembly using pacbio reads with less coverage. Quality is important, but at times can be overcome by increased coverage. 
 Note: Base calling accuracy is measured by the Phread quality score also called Q score. Essentially, it indicates the probability that a given base is incorrectly called by the sequencer.  
 
-4. **K-mer characteristics (see theory)**
+4. **K-mer characteristics (see theory)**: For genome assembly you can also use k-mer tools traditionally meant for short-reads such as GenomeScope to inspect the k-mer characteristics such as genome size, heterozygosity rate and repeat content from unprocessed reads. HiFi reads are accurate enough so any k-mer tools work well with HiFi reads. 
 
-For genome assembly you can also use k-mer tools traditionally meant for short-reads such as GenomeScope to inspect the k-mer characteristics such as genome size, heterozygosity rate and repeat content from unprocessed reads. HiFi reads are accurate enough so any k-mer tools work well with HiFi reads. 
-
-## Genomescope
+### Genomescope
 
 One of the popular tools that can be used for pre-assembly QC is Genomescope. It uses an equation that accurately models the shape and size of the K-mer graph using four negative binomial peaks whose shape and size are determined by % heterozygosity, % sequencing duplication and % sequencing error. These are all very useful pieces of information to help you learn more about your genome based on the raw data. Many tools are available for K-mer frequency estimation such as:
 
@@ -102,7 +92,7 @@ One of the popular tools that can be used for pre-assembly QC is Genomescope. It
 
 Genomescope is an R script that uses k-mer frequencies generated from raw read data to estimate the genome size, abundance of repetitive elements and rate of heterozygosity. This tool is made available on [Galaxy Australia](https://usegalaxy.org.au/root?tool_id=toolshed.g2.bx.psu.edu/repos/iuc/genomescope/genomescope/2.0+galaxy1), is listed on [bio.tools](https://bio.tools/GenomeScope_2.0) and the documentation for use is [available here](https://github.com/tbenavi1/genomescope2.0). 
 
-### Interpretation of the GenomeScope profile graph
+#### Interpretation of the GenomeScope profile graph
 
 The image below presents an example GenomeScope output of the 21-mer profile:
 
