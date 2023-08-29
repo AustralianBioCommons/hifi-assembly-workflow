@@ -4,25 +4,6 @@ description: More detailed workflow documentation, as well as descriptions of mo
 type: docs
 ---
 
-  - [Description](#description)
-  - [Diagram](#diagram)
-  - [User guide](#user-guide)
-      - [Quick start guide](#quick-start-guide)
-      - [Required (minimum)
-        inputs/parameters](#required-minimum-inputsparameters)
-      - [Parameters](#parameters)
-      - [Third party tools / dependencies](#third-party-tools--dependencies)
-      - [Infrastructure usage and
-        recommendations](#infrastructure-usage-and-recommendations)
-      - [Compute resource usage across tested
-        infrastructures](#compute-resource-usage-across-tested-infrastructures)
-  - [Benchmarking](#benchmarking)
-  - [Additional notes](#additional-notes)
-  - [Help/FAQ/Troubleshooting](#helpfaqtroubleshooting)
-  - [3rd party Tutorials](#3rd-party-tutorials)
-  - [Licence(s)](#licences)
-  - [Acknowledgements/citations/credits](#acknowledgementscitationscredits)
-
 
 ## Description
 
@@ -42,7 +23,7 @@ Please refer to the following documentation for detailed description of each wor
 
 
 ## Diagram
-<img src="workflow.png" alt="HiFi assembly workflow flowchart" width=50% height=50% style="display: block; margin-left: auto; margin-right: auto;">
+<img src="./images/workflow.png" alt="HiFi assembly workflow flowchart" width=50% height=50% style="display: block; margin-left: auto; margin-right: auto;">
 
 
 ## User guide
