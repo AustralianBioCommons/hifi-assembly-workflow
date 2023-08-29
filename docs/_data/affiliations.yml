@@ -16,3 +16,8 @@
   type: infrastructure
   url: https://www.biocommons.org.au/
 
+- name: ELIXIR Toolkit Theme
+  image_url: /assets/elixir-toolkit-theme_logo.svg
+  expose: true
+  type: infrastructure
+  url: https://elixir-belgium.github.io/elixir-toolkit-theme

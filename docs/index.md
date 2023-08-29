@@ -37,8 +37,6 @@ The documentation in this repository is based on [Australian BioCommons guidelin
 
 This guide makes use of the [ELIXIR toolkit theme](https://github.com/ELIXIR-Belgium/elixir-toolkit-theme)
 
-{% include image.html file="elixir-toolkit-theme_logo.svg" alt="Elixir Toolkit Theme logo" max-width="15em" %}
-
 {% include affiliation-tiles-selection.html type="infrastructure" %}
 
 

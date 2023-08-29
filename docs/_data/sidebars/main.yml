@@ -5,7 +5,7 @@ subitems:
     url: /recommendations
   - title: Workflow documentation
     url: /workflows
-  - title: Optimisation
+  - title: Usage on different compute systems
     url: /infrastructure_optimisation
   - title: Contributors
     url: /contributors
