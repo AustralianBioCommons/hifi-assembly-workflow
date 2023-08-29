@@ -9,11 +9,11 @@ type: docs
 
 HiFi-assembly-workflow is a bioinformatics pipeline that can be used to analyse Pacbio CCS reads for *de novo* genome assembly using PacBio Circular Consensus Sequencing (CCS)  reads. This workflow is implemented in Nextflow and has 3 major sections. 
  
-Please refer to the following documentation for detailed description of each workflow section:
+Please refer to [this documentation for a detailed description](recommendations) of each workflow section:
  
-- [Adapter filteration and Pre-assembly quality control (QC)](https://github.com/AusARG/hifi-assembly-workflow/blob/master/recommendations.md#stage-1-adapter-filteration-and-pre-assembly-quality-control)
-- [Assembly](https://github.com/AusARG/hifi-assembly-workflow/blob/master/recommendations.md#stage-2-assembly)
-- [Post-assembly QC](https://github.com/AusARG/hifi-assembly-workflow/blob/master/recommendations.md#stage-3-post-assembly-quality-control)
+- [Adapter filteration and Pre-assembly quality control (QC)](recommendations.md#stage-1-adapter-filtration-and-pre-assembly-quality-control)
+- [Assembly](recommendations.md#stage-2-assembly)
+- [Post-assembly QC](recommendations.md#stage-3-post-assembly-quality-control)
 
 
 ## How-to cite this workflow
@@ -36,26 +36,27 @@ The pipeline has been tested on NCI Gadi, Setonix Pawsey, AWS and AGRF balder cl
 
 **Please note:**
 
-- For running this on NCI Gadi you need access. Please refer to Gadi guidelines for account creation and usage: these can be found at https://opus.nci.org.au/display/Help/Access.
-- For running this on Setonix Pawsey you need access. Please refer to Setonix guidelines at https://support.pawsey.org.au/documentation/display/US/User+Support+Documentation.
-- That you can either run jobs interactively or submit jobs to the cluster. This is determined by the -profile flag. By passing the if89/setonix tag to the profile argument, the jobs are submitted and run on the cluster and utilising singularity containers.
+- For running this on NCI Gadi you need access. Please refer to [Gadi guidelines for account creation and usage](https://opus.nci.org.au/display/Help/Access).
+- For running this on Setonix Pawsey you need access. Please refer to [Setonix guidelines](https://support.pawsey.org.au/documentation/display/US/User+Support+Documentation).
+- That you can either run jobs interactively or submit jobs to the cluster. This is determined by the `-profile` flag. By passing the `if89/setonix` tag to the profile argument, the jobs are submitted and run on the cluster and also use singularity containers.
 
-Support to access compute infrastructure, please refer to ABLeS documentation at https://australianbiocommons.github.io/ables/.
+For support accessing compute infrastructure, please refer to ABLeS documentation at https://australianbiocommons.github.io/ables/.
 
 
 ### Required (minimum) inputs/parameters
  
-PATH to HiFi bam folder is the minimum requirement for the pipeline.
+`PATH` to HiFi bam folder is the minimum requirement for the workflow.
 
 
 ### Parameters
 
 The workflow accepts the following arguments:
-**Mandatory arguments:**
+
+#### Mandatory arguments
 
 + `--bam_folder`: Folder containing BAM files (Only *HiFi* BAM file)
 
-**Optional arguments:**
+#### Optional arguments
 
 + `--out_dir`:                   Path to the otuput directory. Default: The input bam directory.
 + `--samtools_threads`:          Number of threads to use for samtools. Default is 8.
@@ -208,26 +209,23 @@ N/A
 
 ## Additional notes
 
+N/A
+
 
 ## Help/FAQ/Troubleshooting
 
 Direct training and help is available if you are new to HPC and/or new to NCI/Gadi.
 
-- Basic information to get started with the NCI Gadi for bioinformatics can be found at https://github.com/AusARG/ABLeS/wiki/temppage.
-- For NCI support, contact the NCI helpdesk directly at https://www.nci.org.au/users/nci-helpdesk
-- Queue limits and structure explained at https://opus.nci.org.au/display/Help/4.+PBS+Jobs
+- Basic information to get started with the NCI Gadi for bioinformatics can be [found here](https://github.com/AusARG/ABLeS/wiki/temppage).
+- For NCI support, [contact the NCI helpdesk](https://www.nci.org.au/users/nci-helpdesk).
+- Queue limits and structure are [explained here](https://opus.nci.org.au/display/Help/4.+PBS+Jobs).
 
 
 ## 3rd party Tutorials 
 
-A tutorial by Andrew Severin on running GenomeScope 1.0 is available here:
-https://github.com/AusARG/hifi-assembly-workflow.git
-
-Improved Phased Assembler tutorial is available at 
-https://github.com/PacificBiosciences/pbbioconda/wiki/Improved-Phased-Assembler
-
-Busco tutorial
-https://wurmlab.com/genomicscourse/2016-SIB/practicals/busco/busco_tutorial
+- A tutorial by Andrew Severin on running GenomeScope 1.0 is [available here](https://github.com/AusARG/hifi-assembly-workflow.git).
+- Improved Phased Assembler tutorial is [available here](https://github.com/PacificBiosciences/pbbioconda/wiki/Improved-Phased-Assembler).
+- [Busco tutorial](https://wurmlab.com/genomicscourse/2016-SIB/practicals/busco/busco_tutorial).
 
 
 ## Licence(s)

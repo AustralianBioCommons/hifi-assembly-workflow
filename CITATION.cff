@@ -1,10 +1,22 @@
 cff-version: 1.1.0
 message: "Please cite as below."
 authors:
-  - family-names: [family name goes here]
-    given-names: [given names go here]
-    orcid: [ORCID goes here]
-title: "Title of repository goes here"
+  - family-names: Kasinadhuni
+    given-names: Naga
+  - family-names: Al Bkhetan
+    given-names: Ziad
+    orcid: https://orcid.org/0000-0002-4032-5331
+  - family-names: Zakrzewski
+    given-names: Martha
+  - family-names: Chan
+    given-names: Kenneth
+  - family-names: Winter
+    given-names: Uwe
+  - family-names: Gustafsson
+    given-names: Johan
+    orcid: https://orcid.org/0000-0002-2977-5032
+title: "HiFi de novo genome assembly workflow"
 version: 1.1.0
 doi: [DOI goes here]
-date-released: 2023-08-DD
+date-released: 2023-08-30
+repository-code: https://github.com/AustralianBioCommons/hifi-assembly-workflow
