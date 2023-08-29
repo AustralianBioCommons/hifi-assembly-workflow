@@ -1,6 +1,6 @@
 ---
-title: Workflow optimisation
-description: Optimisation of the workflow on NCI Gadi and Pawsey Setonix HPCs
+title: Usage on different compute systems
+description: Using the workflow on NCI Gadi and Pawsey Setonix HPCs
 ---
 
 

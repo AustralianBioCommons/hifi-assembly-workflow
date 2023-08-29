@@ -174,9 +174,12 @@ Assembly evaluation folder contains various file formats, here is a brief descri
 
 ## Compute resource usage across tested infrastructures
 
-|                                       | Computational resource for plant case study |
-| ------------------------------------- | ------------------------------------------- |
+### NCI Gadi 
+
+#### Computational resource for plant case study
+
 |                                       | Time                                        | CPU | Memory | I/O |
+|---------------------------------------|---------------------------------------------|-----|--------|-----|
 | Process                               | realtime                                   | realtime | %cpu | peak\_rss | peak\_vmem | rchar | wchar |
 | Converting bam to fasta for sample    | 12m 48s                                     | 12m 48s | 99.80% | 5.2 MB | 197.7 MB | 43.3 GB | 50.1 GB |
 | Generating k-mer counts and histogram | 26m 36s                                     | 26m 36s | 1725.30% | 19.5 GB | 21 GB | 77.2 GB | 27.1 GB |
@@ -185,10 +188,10 @@ Assembly evaluation folder contains various file formats, here is a brief descri
 | evaluate\_assemblies                  | 4m 54s                                      | 4m 54s | 98.20% | 1.6 GB | 1.9 GB | 13.6 GB | 2.8 GB |
 | assemblies\_completeness              | 25m 53s                                     | 25m 53s | 2624.20% | 22 GB | 25.2 GB | 624.9 GB | 2.9 GB |
 
+#### Computational resource for bird case study
 
-|                                       | Computational resource for bird case study |
-| ------------------------------------- | ------------------------------------------ |
 |                                       | Time                                       | CPU | Memory | I/O |
+|---------------------------------------|-------------------------------------------|-----|---------|-----|
 | Process                               | realtime                                   | realtime | %cpu | peak\_rss | peak\_vmem | rchar | wchar |
 | Converting bam to fasta for sample    | 7m 9s                                    | 7m 9s | 86.40% | 5.2 MB | 197.8 MB | 21.5 GB | 27.4 GB |
 | Generating k-mer counts and histogram | 15m 34s                                    | 15m 34s | 1687.70% | 10.1 GB | 11.7 GB | 44 GB | 16.6 GB |
