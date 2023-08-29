@@ -8,13 +8,13 @@ toc: false
 
 HiFi-assembly-workflow is a bioinformatics pipeline that can be used to analyse Pacbio CCS reads for *de novo* genome assembly using PacBio Circular Consensus Sequencing (CCS) reads. This workflow is implemented in Nextflow and has 3 major sections. 
  
-Please refer to [this documentation for a detailed description](recommendations) of each workflow section:
+Please refer to [this documentation for detailed recommendations](recommendations) relevant to each workflow section:
  
-- Adapter filtration and pre-assembly quality control (QC)
-- Assembly
-- Post-assembly QC
+- [Adapter filtration and pre-assembly quality control (QC)](recommendations.md#stage-1-adapter-filtration-and-pre-assembly-quality-control)
+- [Assembly](recommendations.md#stage-2-assembly)
+- [Post-assembly QC](recommendations.md#stage-3-post-assembly-quality-control)
 
-## Documentation pages
+## Documentation pages available
 
 {% include section-navigation-tiles.html type="docs" %}
 

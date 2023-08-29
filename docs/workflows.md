@@ -11,7 +11,7 @@ HiFi-assembly-workflow is a bioinformatics pipeline that can be used to analyse 
  
 Please refer to [this documentation for a detailed description](recommendations) of each workflow section:
  
-- [Adapter filteration and Pre-assembly quality control (QC)](recommendations.md#stage-1-adapter-filtration-and-pre-assembly-quality-control)
+- [Adapter filtration and pre-assembly quality control (QC)](recommendations.md#stage-1-adapter-filtration-and-pre-assembly-quality-control)
 - [Assembly](recommendations.md#stage-2-assembly)
 - [Post-assembly QC](recommendations.md#stage-3-post-assembly-quality-control)
 
