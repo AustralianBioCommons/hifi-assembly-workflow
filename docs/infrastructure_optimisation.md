@@ -1,5 +1,8 @@
-HiFi Assembly workflow on NCI gadi and Pawsey Setonix HPCs
-===========
+---
+title: HiFi de novo genome assembly on NCI Gadi and Pawsey Setonix HPCs
+type: docs
+toc: false
+---
 
 
 ## Accessing tool/workflow

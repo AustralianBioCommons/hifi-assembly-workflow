@@ -1,4 +1,10 @@
-# HiFi assembly workflow - background documentation and recommendations
+---
+title: HiFi de novo genome assembly workflow - background documentation and recommendations
+description: A primer for life scientists that would like to reuse the HiFi assembly workflow in this repository. 
+type: docs
+toc: false
+---
+
 
 ## Who is this guideline for?
 This set of guidelines are intended as a primer for life scientists that would like to reuse the HiFi assembly workflow in this repository. 
