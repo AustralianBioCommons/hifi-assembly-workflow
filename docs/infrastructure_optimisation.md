@@ -1,7 +1,6 @@
 ---
 title: Workflow optimisation
 description: Optimisation of the workflow on NCI Gadi and Pawsey Setonix HPCs
-type: docs
 ---
 
 

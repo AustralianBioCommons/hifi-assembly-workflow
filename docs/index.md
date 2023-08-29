@@ -14,6 +14,10 @@ Please refer to [this documentation for a detailed description](recommendations)
 - Assembly
 - Post-assembly QC
 
+## Documentation pages
+
+{% include section-navigation-tiles.html type="docs" %}
+
 
 ## Please cite the workflow as follows
 
