@@ -1,17 +1,17 @@
 HiFi Assembly workflow on NCI gadi and Pawsey Setonix HPCs
 ===========
 
----
 
-# Accessing tool/workflow
+## Accessing tool/workflow
 
-Pipeline consists of mainly three modules. 
-1.	Preqc consist of bam to fasta conversion, k-mer analysis and genome profiling processes.
+Workflow consists of three modules:
+
+1.	Preqc module consists of bam to fasta conversion, k-mer analysis and genome profiling processes.
 2.	Assembly module consists of processing CCS data using IPA
 3.	Post assembly module consists of assembly evaluation and assessing completeness.
 
 
-Dependencies:
+### Dependencies
 
 The following packages are used by the pipeline.
 ```
@@ -25,10 +25,11 @@ busco/5.4.3
 HiFiAdapterFilt/2.0.0
 ```
 
-# Running on GADI at NCI using if89 project
+## Running the workflow on GADI at NCI using if89 project
 
-login to gadi with you credientails.
-You need to join if89 project if you have not before
+1. Login to Gadi with your credentials. 
+2. Join the `if89 project`, if you have not already. [See this link](https://australianbiocommons.github.io/ables/if89/) for details on how to join.
+3. Use the following script to run the workflow:
 
 ```
 cd <hifi_genome_assembly_location>

@@ -5,25 +5,23 @@ HiFi *de novo* genome assembly workflow
   - [Diagram](#diagram)
   - [User guide](#user-guide)
       - [Quick start guide](#quick-start-guide)
+      - [Required (minimum)
+        inputs/parameters](#required-minimum-inputsparameters)
+      - [Parameters](#parameters)
+      - [Third party tools / dependencies](#third-party-tools--dependencies)
       - [Infrastructure usage and
         recommendations](#infrastructure-usage-and-recommendations)
       - [Compute resource usage across tested
         infrastructures](#compute-resource-usage-across-tested-infrastructures)
   - [Benchmarking](#benchmarking)
-  - [Workflow summaries](#workflow-summaries)
-      - [Metadata](#metadata)
-      - [Component tools](#component-tools)
-      - [Required (minimum)
-        inputs/parameters](#required-minimum-inputsparameters)
   - [Additional notes](#additional-notes)
   - [Help/FAQ/Troubleshooting](#helpfaqtroubleshooting)
   - [3rd party Tutorials](#3rd-party-tutorials)
   - [Licence(s)](#licences)
   - [Acknowledgements/citations/credits](#acknowledgementscitationscredits)
 
----
 
-# Description
+## Description
 
 HiFi-assembly-workflow is a bioinformatics pipeline that can be used to analyse Pacbio CCS reads for *de novo* genome assembly using PacBio Circular Consensus Sequencing (CCS)  reads. This workflow is implemented in Nextflow and has 3 major sections. 
  
@@ -33,16 +31,40 @@ Please refer to the following documentation for detailed description of each wor
 - [Assembly](https://github.com/AusARG/hifi-assembly-workflow/blob/master/recommendations.md#stage-2-assembly)
 - [Post-assembly QC](https://github.com/AusARG/hifi-assembly-workflow/blob/master/recommendations.md#stage-3-post-assembly-quality-control)
 
----
 
-# Diagram
+## How-to cite this workflow
+
+> citation goes here
+
+
+
+## Diagram
 <img src="workflow.png" alt="HiFi assembly workflow flowchart" width=50% height=50% style="display: block; margin-left: auto; margin-right: auto;">
 
----
 
-# User guide
+## User guide
 
-## Parameters
+
+### Quick start guide
+
+The pipeline has been tested on NCI Gadi, Setonix Pawsey, AWS and AGRF balder cluster. If needed to run on AGRF cluster, please contact us at bioinformatics@agrf.org.au.
+
+**Please note:**
+
+- For running this on NCI Gadi you need access. Please refer to Gadi guidelines for account creation and usage: these can be found at https://opus.nci.org.au/display/Help/Access.
+- For running this on Setonix Pawsey you need access. Please refer to Setonix guidelines at https://support.pawsey.org.au/documentation/display/US/User+Support+Documentation.
+- That you can either run jobs interactively or submit jobs to the cluster. This is determined by the -profile flag. By passing the if89/setonix tag to the profile argument, the jobs are submitted and run on the cluster and utilising singularity containers.
+
+Support to access compute infrastructure, please refer to ABLeS documentation at https://australianbiocommons.github.io/ables/.
+
+
+### Required (minimum) inputs/parameters
+ 
+PATH to HiFi bam folder is the minimum requirement for the pipeline.
+
+
+### Parameters
+
 The workflow accepts the following arguments:
 **Mandatory arguments:**
 
@@ -82,19 +104,50 @@ The workflow accepts the following arguments:
 **Nextflow arguments:**
 + `-profile`: execution profiles. `if89`/`balder`/`local`/`setonix`/`aws`/`singularity`/`docker`/
 
-## Quick start guide
 
-The pipeline has been tested on NCI Gadi, Setonix Pawsey, AWS and AGRF balder cluster. If needed to run on AGRF cluster, please contact us at bioinformatics@agrf.org.au.
+### Third party tools / dependencies
 
-Please note for running this on NCI Gadi you need access. Please refer to Gadi guidelines for account creation and usage: these can be found at https://opus.nci.org.au/display/Help/Access.
+The following packages are used by the pipeline.
 
-Please note for running this on Setonix Pawsey you need access. Please refer to Setonix guidelines at https://support.pawsey.org.au/documentation/display/US/User+Support+Documentation.
+- `nextflow/21.04.3`
+- `samtools/1.12`
+- `jellyfish/2.3.0`
+- `genomescope/2.0`
+- `ipa/1.3.1`
+- `quast/5.0.2`
+- `busco/5.4.3`
+- `HiFiAdapterFilt/2.0.0`
 
-Support to access compute infrastructure, please refer to ABLeS Documentation at https://australianbiocommons.github.io/ables/.
+The following paths contain all modules required for the pipeline.
 
-Please note that you can either run jobs interactively or submit jobs to the cluster. This is determined by the -profile flag. By passing the if89/setonix tag to the profile argument, the jobs are submitted and run on the cluster and utlising singularity containers.
+- `/apps/Modules/modulefiles`
+- `/g/data/if89/apps/modulefiles/`
 
-### Running on GADI at NCI
+
+## Infrastructure usage and recommendations
+
+### Pawsey
+
+#### Running on Setonix at Pawsey
+```
+module load nextflow/23.04.1
+module load singularity/3.8.6
+nextflow run hifi_assembly.nf --bam_folder <PATH TO THE BAM FOLDER> --project_id director2172  -profile setonix
+```
+
+
+### NCI 
+
+#### Facility access
+
+One should have a user account set with NCI to access gadi high performance computational facility. Setting up a NCI account is mentioned in detail at the following URL: https://opus.nci.org.au/display/Help/Setting+up+your+NCI+Account 
+  
+Documentation for a specific infrastructure should go into a infrastructure documentation template
+https://github.com/AustralianBioCommons/doc_guidelines/blob/master/infrastructure_optimisation.md
+
+
+#### Running on GADI at NCI
+
 Here is an example that can be used to run a phased assembly on Gadi utilising [if89](https://australianbiocommons.github.io/ables/if89/) (shared tools and workflow repository):
 
 ```
@@ -103,24 +156,8 @@ module load singularity
 nextflow run hifi_assembly.nf --bam_folder <PATH TO THE BAM FOLDER> --project_id xl04 --storage_paths gdata/if89+gdata/ll61 -profile if89
 ```
 
-### Running on Setonix at Pawsey
-```
-module load nextflow/23.04.1
-module load singularity/3.8.6
-nextflow run hifi_assembly.nf --bam_folder <PATH TO THE BAM FOLDER> --project_id director2172  -profile setonix
 
-```
-
-
-## Infrastructure usage and recommendations
-
-### NCI facility access
-One should have a user account set with NCI to access gadi high performance computational facility. Setting up a NCI account is mentioned in detail at the following URL: https://opus.nci.org.au/display/Help/Setting+up+your+NCI+Account 
-  
-Documentation for a specific infrastructure should go into a infrastructure documentation template
-https://github.com/AustralianBioCommons/doc_guidelines/blob/master/infrastructure_optimisation.md
-
-### Example local profile usage
+#### Example local profile usage
 
 ```
 Start a screen, submit a job, and run the workflow 
@@ -190,6 +227,7 @@ Assembly evaluation folder contains various file formats, here is a brief descri
 | icarus.html | Icarus main menu with links to interactive viewers                                        |
 | report.html | HTML version of the report with interactive plots inside                                  |
 
+
 ## Compute resource usage across tested infrastructures
 
 |                                       | Computational resource for plant case study |
@@ -215,68 +253,16 @@ Assembly evaluation folder contains various file formats, here is a brief descri
 | evaluate assemblies                   | 2m 48s                                     | 2m 48s | 97.50% | 1.1 GB | 1.4 GB | 8.7 GB | 1.8 GB |
 | assemblies completeness               | 22m 36s                                    | 22m 36s | 2144.00% | 22.2 GB | 25 GB | 389.7 GB | 1.4 GB |
 
---- 
   
-# Benchmarking
+## Benchmarking
   
 N/A
 
----
-  
-# Workflow summaries
 
-## Metadata
-
-| Metadata field   | Pre-assembly quality control                                                      | Primary assembly   | Post-assembly quality control |
-| ---------------- | --------------------------------------------------------------------------------- | ------------------ | ----------------------------- |
-| Version          | 1.0                                                                               | 1.0                | 1.0                           |
-| Maturity         | Production                                                                        | Production         | production                    |
-| Creators         | Naga, Kenneth                                                                     | Naga, Kenneth      | Naga, Kenneth                 |
-| Source           | [AusARG/hifi-assembly-workflow](https://github.com/AusARG/hifi-assembly-workflow) |
-| License          |                                                                                   |                    |                               |
-| Workflow manager | NextFlow                                                                          | NextFlow           | NextFlow                      |
-| Container        | No containers used                                                                | No containers used | No containers used            |
-| Install method   | Manual                                                                            | Manual             | Manual                        |
+## Additional notes
 
 
-## Component tools
-​
-| Workflow element                  | Workflow element version | Workflow title                |
-| --------------------------------- | ------------------------ | ----------------------------- |
-| Samtools, jellyfish, genomescope  | 1.0                      | Pre-assembly quality control  |
-| Improved phased assembler (pbipa) | 1.0                      | Primary assembly              |
-| Quast and busco                   | 1.0                      | Post-assembly quality control |
-
-
-## Required (minimum) inputs/parameters
- 
-PATH to HIFI bam folder is the minimum requirement for the processing the pipeline.
-
-## Third party tools / dependencies
-
-The following packages are used by the pipeline.
-
-- `nextflow/21.04.3`
-- `samtools/1.12`
-- `jellyfish/2.3.0`
-- `genomescope/2.0`
-- `ipa/1.3.1`
-- `quast/5.0.2`
-- `busco/5.4.3`
-- `HiFiAdapterFilt/2.0.0`
-
-The following paths contain all modules required for the pipeline.
-
-- `/apps/Modules/modulefiles`
-- `/g/data/if89/apps/modulefiles/`
-
----
-
-# Additional notes
-
----
-
-# Help/FAQ/Troubleshooting
+## Help/FAQ/Troubleshooting
 
 Direct training and help is available if you are new to HPC and/or new to NCI/Gadi.
 
@@ -284,9 +270,8 @@ Direct training and help is available if you are new to HPC and/or new to NCI/Ga
 - For NCI support, contact the NCI helpdesk directly at https://www.nci.org.au/users/nci-helpdesk
 - Queue limits and structure explained at https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 
----
 
-# 3rd party Tutorials 
+## 3rd party Tutorials 
 
 A tutorial by Andrew Severin on running GenomeScope 1.0 is available here:
 https://github.com/AusARG/hifi-assembly-workflow.git
@@ -297,9 +282,8 @@ https://github.com/PacificBiosciences/pbbioconda/wiki/Improved-Phased-Assembler
 Busco tutorial
 https://wurmlab.com/genomicscourse/2016-SIB/practicals/busco/busco_tutorial
 
----
 
-# Licence(s)
+## Licence(s)
 
 MIT License
 
@@ -323,9 +307,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
 
-# Acknowledgements/citations/credits
+## Acknowledgements/citations/credits
 
 > Jung, H. et al. Twelve quick steps for genome assembly and annotation in the classroom. PLoS Comput. Biol. 16, 1–25 (2020).
 
@@ -336,5 +319,3 @@ SOFTWARE.
 > Gurevich, A., Saveliev, V., Vyahhi, N. & Tesler, G. QUAST: Quality assessment tool for genome assemblies. Bioinformatics 29, 1072–1075 (2013).
 
 > Waterhouse, R. M. et al. BUSCO applications from quality assessments to gene prediction and phylogenomics. Mol. Biol. Evol. 35, 543–548 (2018).
-
----

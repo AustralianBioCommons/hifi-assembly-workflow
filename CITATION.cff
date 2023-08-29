@@ -1,30 +1,10 @@
-
-###########################################################################################################
-### This is an example CITATION.cff file completed for the documentation guidelines template repository ###
-###########################################################################################################
-### You can create your own using the blank template provided at the bottom of this file"
-### Simply remove the "#" and complete each field provided: for more information please see Druskat, S., Spaaks, J. H., Chue Hong, N., Haines, R., Baker, J., Bliven, S., Willighagen, E., Pérez-Suárez, D., & Konovalov, O. (2021). Citation File Format (Version 1.2.0) [Computer software]. https://doi.org/10.5281/zenodo.5171937
-
-cff-version: 0.0.1
-message: "If you use this pipeline, please cite as below."
+cff-version: 1.1.0
+message: "Please cite as below."
 authors:
-title: "Hifi assembly workflow"
-version: 
-doi:
-date-released: 2023-Aug-25
-
-
-###################################
-### Blank template CITATION.cff ###
-###################################
-
-#cff-version: 0.0.0
-#message: "Please cite as below."
-#authors:
-#  - family-names: [family name goes here]
-#    given-names: [given names go here]
-#    orcid: [ORCID goes here]
-#title: "Title of repository goes here"
-#version: 0.0.0
-#doi: [DOI goes here]
-#date-released: YYYY-MM-DD
+  - family-names: [family name goes here]
+    given-names: [given names go here]
+    orcid: [ORCID goes here]
+title: "Title of repository goes here"
+version: 1.1.0
+doi: [DOI goes here]
+date-released: 2023-08-DD
