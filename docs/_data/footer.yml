@@ -1,0 +1,16 @@
+# see https://github.com/AustralianBioCommons/human-omics-data-sharing-field-guide/blob/main/_data/footer.yml
+copyright: 'Read our [Privacy](https://www.biocommons.org.au/privacy) and [Cookies](https://www.biocommons.org.au/cookies) statements.'
+extra_line:
+columns:
+  - type: image
+    image_width: 120px
+    width: 3
+    src: 'assets/img/main_logo.png'
+    alt: Australian BioCommons Logo
+  - type: links
+    width: 3
+    children:
+      - url_text: Home
+        url: /
+      - url_text: Contributors
+        url: /contributors

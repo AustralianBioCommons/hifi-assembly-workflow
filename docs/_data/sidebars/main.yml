@@ -1,0 +1,11 @@
+subitems:
+  - title: About the workflow
+    url: /
+  - title: Usage guide & recommendations
+    url: /recommendations
+  - title: Workflow documentation
+    url: /workflows
+  - title: Optimisation
+    url: /infrastructure_optimisation
+  - title: Contributors
+    url: /contributors

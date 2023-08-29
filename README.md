@@ -1,6 +1,6 @@
 # HiFi *de novo* genome assembly workflow
 
-HiFi-assembly-workflow is a bioinformatics pipeline that can be used to analyse Pacbio CCS reads for *de novo* genome assembly using PacBio Circular Consensus Sequencing (CCS)  reads. This workflow is implemented in Nextflow and has 3 major sections. 
+HiFi-assembly-workflow is a bioinformatics pipeline that can be used to analyse Pacbio CCS reads for *de novo* genome assembly using PacBio Circular Consensus Sequencing (CCS) reads. This workflow is implemented in Nextflow and has 3 major sections. 
  
 Please refer to the following documentation for detailed description of each workflow section:
  

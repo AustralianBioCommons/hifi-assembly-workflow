@@ -1,0 +1,44 @@
+
+############################
+### List of contributors ###
+############################
+
+### see https://github.com/ELIXIR-Belgium/elixir-toolkit-theme
+
+#############################################################################################################################################
+### add maintainers/contributors below and use their name in the contributors metadata section on each page they have contributed towards ###
+#############################################################################################################################################
+
+# an example contributor is included below
+# example roles include "lead", "first-author", "author", "editor", "workflow-tester"
+
+Naga Kasinadhuni:
+    git: jb018
+    affiliation: Australian Genome Research Facility
+
+Ziad Al Bkhetan:
+    git: ziadbkh
+    email: ziad@biocommons.org.au
+    orcid: 0000-0002-4032-5331
+    affiliation: Australian BioCommons / University of Melbourne
+
+Martha Zakrzewski:
+    git: marthazak
+    affiliation: Australian Genome Research Facility
+
+Kenneth Chan:
+    git: uqccha18
+    affiliation: Australian Genome Research Facility
+
+Uwe Winter:
+    git: uwwint
+    affiliation: Australian BioCommons / University of Melbourne
+
+Johan Gustafsson:
+    git: supernord
+    email: johan@biocommons.org.au
+    orcid: 0000-0002-2977-5032
+    affiliation: Australian BioCommons / University of Melbourne
+
+
+

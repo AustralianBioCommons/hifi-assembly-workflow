@@ -1,0 +1,37 @@
+title: HiFi de novo genome assembly workflow
+# This appears in the html browser tab for the site title (seen mostly by search engines, not users)
+
+#topnav_title: Website title
+# Optional: this appears on the top navigation bar next to the main_logo.svg icon
+
+description: "HiFi-assembly-workflow is a bioinformatics pipeline that can be used to analyse Pacbio CCS reads for *de novo* genome assembly using PacBio Circular Consensus Sequencing (CCS) reads."
+# Metadata description of the website
+
+remote_theme: ELIXIR-Belgium/elixir-toolkit-theme@2.1.0
+
+theme_variables:
+  # biocommons blue
+  theme_color: 205a86
+  topnav:
+    brand_logo: assets/img/main_logo.png
+  privacy_statement_url: https://www.biocommons.org.au/privacy
+
+exclude:
+  - README.md
+  - vendor
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      permalink: /:basename
+      layout: "page"
+      sidebar: main
+
+plugins:
+  - jemoji
+  - jekyll-sitemap
+  - jekyll-github-metadata
+  - webrick
