@@ -27,7 +27,39 @@ busco/5.4.3
 HiFiAdapterFilt/2.0.0
 ```
 
-## Running the workflow on GADI at NCI using if89 project
+
+## Pawsey
+
+#### Running on Setonix at Pawsey
+```
+module load nextflow/23.04.1
+module load singularity/3.8.6
+nextflow run hifi_assembly.nf --bam_folder <PATH TO THE BAM FOLDER> --project_id director2172  -profile setonix
+```
+
+
+## NCI 
+
+### Facility access
+
+One should have a user account set with NCI to access gadi high performance computational facility. Setting up a NCI account is mentioned in detail at the following URL: https://opus.nci.org.au/display/Help/Setting+up+your+NCI+Account 
+  
+Documentation for a specific infrastructure should go into a infrastructure documentation template
+https://github.com/AustralianBioCommons/doc_guidelines/blob/master/infrastructure_optimisation.md
+
+
+### Running on GADI at NCI
+
+Here is an example that can be used to run a phased assembly on Gadi utilising [if89](https://australianbiocommons.github.io/ables/if89/) (shared tools and workflow repository):
+
+```
+module load nextflow
+module load singularity
+nextflow run hifi_assembly.nf --bam_folder <PATH TO THE BAM FOLDER> --project_id xl04 --storage_paths gdata/if89+gdata/ll61 -profile if89
+```
+
+
+### Running the workflow on GADI at NCI using if89 project
 
 1. Login to Gadi with your credentials. 
 2. Join the `if89 project`, if you have not already. [See this link](https://australianbiocommons.github.io/ables/if89/) for details on how to join.
@@ -39,5 +71,15 @@ hifi_assembly.nf --bam_folder <PATH_TO_BAM_FOLDER> -profile if89
 ```
 
 
+### Example local profile usage
 
----
+```
+Start a screen, submit a job, and run the workflow 
+Screen -S ‘name’
+qsub -I -qnormal -Pwz54 -lwalltime=48:00:00,ncpus=4,mem=200GB,storage=scratch/wz54+gdata/wz54,wd
+export MODULEPATH=/apps/Modules/modulefiles:/g/data/wz54/groupResources/modules
+module load nextflow/21.04.3
+nextflow run /g/data/wz54/groupResources/scripts/pl/hifi_assembly.nf  --bam_folder  <bam-folder_path> -profile local
+This load the scripts directory to the environmental PATH and load nextflow module
+module load hifi_assembly/1.0.0 
+```

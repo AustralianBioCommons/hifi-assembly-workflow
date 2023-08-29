@@ -24,7 +24,7 @@ Please refer to the following documentation for detailed description of each wor
 
 ## Diagram
 
-{% include image.html file="workflow.png" alt="HiFi assembly workflow flowchart" max-width="20em" %}
+![HiFi assembly workflow flowchart](assets/workflow.png?raw=true "HiFi assembly workflow flowchart")
 
 
 ## User guide
@@ -111,51 +111,10 @@ The following paths contain all modules required for the pipeline.
 
 ## Infrastructure usage and recommendations
 
-### Pawsey
-
-#### Running on Setonix at Pawsey
-```
-module load nextflow/23.04.1
-module load singularity/3.8.6
-nextflow run hifi_assembly.nf --bam_folder <PATH TO THE BAM FOLDER> --project_id director2172  -profile setonix
-```
+Please see the [infrastructure documentation](infrastructure_optimisation).
 
 
-### NCI 
-
-#### Facility access
-
-One should have a user account set with NCI to access gadi high performance computational facility. Setting up a NCI account is mentioned in detail at the following URL: https://opus.nci.org.au/display/Help/Setting+up+your+NCI+Account 
-  
-Documentation for a specific infrastructure should go into a infrastructure documentation template
-https://github.com/AustralianBioCommons/doc_guidelines/blob/master/infrastructure_optimisation.md
-
-
-#### Running on GADI at NCI
-
-Here is an example that can be used to run a phased assembly on Gadi utilising [if89](https://australianbiocommons.github.io/ables/if89/) (shared tools and workflow repository):
-
-```
-module load nextflow
-module load singularity
-nextflow run hifi_assembly.nf --bam_folder <PATH TO THE BAM FOLDER> --project_id xl04 --storage_paths gdata/if89+gdata/ll61 -profile if89
-```
-
-
-#### Example local profile usage
-
-```
-Start a screen, submit a job, and run the workflow 
-Screen -S ‘name’
-qsub -I -qnormal -Pwz54 -lwalltime=48:00:00,ncpus=4,mem=200GB,storage=scratch/wz54+gdata/wz54,wd
-export MODULEPATH=/apps/Modules/modulefiles:/g/data/wz54/groupResources/modules
-module load nextflow/21.04.3
-nextflow run /g/data/wz54/groupResources/scripts/pl/hifi_assembly.nf  --bam_folder  <bam-folder_path> -profile local
-This load the scripts directory to the environmental PATH and load nextflow module
-module load hifi_assembly/1.0.0 
-```
-
-### Outputs
+## Outputs
 
 Pipeline generates various files and folders here is a brief description: 
 The pipeline creates a folder called `secondary_analysis` that contains two sub folders named:
@@ -163,14 +122,14 @@ The pipeline creates a folder called `secondary_analysis` that contains two sub 
 - `exeReport`     
 - `Results`       -- Contains preQC, assembly and postQC analysis files
 
-#### exeReport
+### exeReport
 This folder contains a computation resource usage summary in various charts and a text file. 
 `report.html` provides a comprehensive summary.
 
-#### Results
+### Results
 The `Results` folder contains three sub-directories preQC, assembly and postqc. As the name suggests, outputs from the respective workflow sections are placed in each of these folders.
 
-##### preQC
+#### preQC
 The following table contains list of files and folder from preQC results
 
 | Output folder/file | File             | Description                                                                    |
@@ -183,24 +142,24 @@ The following table contains list of files and folder from preQC results
 |                    | summary.txt      | Summary metrics of genome scope outputs                                        |
 |                    | linear\_plot.png | Plot showing no. of times a k-mer observed by no. of k-mers with that coverage |
 
-##### Assembly
+#### Assembly
 
 This folder contains final assembly results in <FASTA> format.
 
 - `<sample>_primary.fa` - Fasta file containing primary contigs
 - `<sample>_associate.fa` - Fasta file containing associated contigs
 
-##### postqc
+#### postqc
  
 The postqc folder contains two sub folders 
 
 - `assembly_completeness`
 - `assembly_evaluation`
 
-###### assembly_completeness
+##### assembly_completeness
 This contains BUSCO evaluation results for primary and associate contig.
 
-###### assembly_evaluation
+##### assembly_evaluation
 
 Assembly evaluation folder contains various file formats, here is a brief description for each of the outputs.
 
