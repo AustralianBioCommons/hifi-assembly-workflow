@@ -109,6 +109,7 @@ It is a general practice to use an odd number k-mer with three different sizes f
 
 
 The summary result shows (below the graph title):
+
 | Label in figure |          Meaning         |  Value  |
 |:---------------:|:------------------------:|:-------:|
 |       len       |   Estimated genome size  | ~134Mbp |

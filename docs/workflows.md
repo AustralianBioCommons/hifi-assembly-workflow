@@ -23,7 +23,8 @@ Please refer to the following documentation for detailed description of each wor
 
 
 ## Diagram
-<img src="./images/workflow.png" alt="HiFi assembly workflow flowchart" width=50% height=50% style="display: block; margin-left: auto; margin-right: auto;">
+
+{% include image.html file="./images/workflow.png" alt="HiFi assembly workflow flowchart" max-width="20em" %}
 
 
 ## User guide

@@ -15,9 +15,6 @@ Please refer to [this documentation for a detailed description](recommendations)
 - Post-assembly QC
 
 
-{% include section-navigation-tiles.html type="docs" %}
-
-
 ## Please cite the workflow as follows
 
 > 
