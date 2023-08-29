@@ -24,7 +24,7 @@ Please refer to the following documentation for detailed description of each wor
 
 ## Diagram
 
-{% include image.html file="/docs/images/workflow.png" alt="HiFi assembly workflow flowchart" max-width="20em" %}
+{% include image.html file="workflow.png" alt="HiFi assembly workflow flowchart" max-width="20em" %}
 
 
 ## User guide

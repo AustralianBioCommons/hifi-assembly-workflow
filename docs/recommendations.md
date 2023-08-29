@@ -105,7 +105,7 @@ It is a general practice to use an odd number k-mer with three different sizes f
 3. Only very large genomes with haploid length greater than 10GB may benefit from a higher k-mer value
 
 
-![flow chart ](./images/genomescope_image.png?raw=true "Genomescope Profile")
+![flow chart ](assets/genomescope_image.png?raw=true "Genomescope Profile")
 
 
 The summary result shows (below the graph title):
