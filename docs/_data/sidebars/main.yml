@@ -1,10 +1,10 @@
 subitems:
   - title: About the workflow
     url: /
-  - title: Usage guide & recommendations
-    url: /recommendations
   - title: Workflow documentation
     url: /workflows
+  - title: Background & recommendations
+    url: /recommendations
   - title: Usage on different compute systems
     url: /infrastructure_optimisation
   - title: Contributors
