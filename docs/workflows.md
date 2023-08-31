@@ -61,7 +61,7 @@ The workflow accepts the following arguments:
 + `--out_dir`:                   Path to the otuput directory. Default: The input bam directory.
 + `--samtools_threads`:          Number of threads to use for samtools. Default is 8.
 + `--samtools_memory`:           Memory to use for samtools. Default is 16.G.
-+ `--adapter_filteration`:       Apply adapter Filtration on the bam files. Default is false.
++ `--adapter_filtration`:       Apply adapter Filtration on the bam files. Default is false.
 + `--hifi_adapter_threads`:      Number of threads used by hifi_adapter. Default is 16.
 + `--hifi_adapter_memory`:       The memory to use for hifi_adapter. Default is 24.
 + `--jellyfish_mer_len`:         The mer length for jellyfish. Default is 21.

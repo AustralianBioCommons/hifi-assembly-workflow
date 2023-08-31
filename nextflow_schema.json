@@ -58,7 +58,7 @@
             "description": "",
             "default": "",
             "properties": {
-                "adapter_filteration": {
+                "adapter_filtration": {
                     "type": "boolean",
                     "description": "Apply Adapter Filtration"
                 },

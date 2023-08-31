@@ -4,9 +4,9 @@ HiFi-assembly-workflow is a bioinformatics pipeline that can be used to analyse 
  
 Please refer to the following documentation for detailed description of each workflow section:
  
-- [Adapter filtration and pre-assembly quality control (QC)](https://github.com/AusARG/hifi-assembly-workflow/blob/master/recommendations.md#stage-1-adapter-filteration-and-pre-assembly-quality-control)
-- [Assembly](https://github.com/AusARG/hifi-assembly-workflow/blob/master/recommendations.md#stage-2-assembly)
-- [Post-assembly QC](https://github.com/AusARG/hifi-assembly-workflow/blob/master/recommendations.md#stage-3-post-assembly-quality-control)
+- [Adapter filtration and pre-assembly quality control (QC)](https://australianbiocommons.github.io/hifi-assembly-workflow/recommendations#stage-1-adapter-filtration-and-pre-assembly-quality-control)
+- [Assembly](https://australianbiocommons.github.io/hifi-assembly-workflow/recommendations.md#stage-2-assembly)
+- [Post-assembly QC](https://australianbiocommons.github.io/hifi-assembly-workflow/recommendations.md#stage-3-post-assembly-quality-control)
 
 
 ## General recommendations 

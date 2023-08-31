@@ -20,7 +20,7 @@ def helpMessage() {
       --samtools_threads          Number of threads to use for samtools. Default is ${params.samtools_threads}.
       --samtools_memory           Memory to use for samtools. Default is ${params.samtools_memory}.
       
-      --adapter_filteration       Apply adapter Filtration on the bam files. Default is ${params.adapter_filteration}.
+      --adapter_filtration       Apply adapter Filtration on the bam files. Default is ${params.adapter_filtration}.
       --hifi_adapter_threads      Number of threads used by hifi_adapter. Default is ${params.hifi_adapter_threads}.
       --hifi_adapter_memory       The memory to use for hifi_adapter. Default is ${params.hifi_adapter_memory}.
       
@@ -117,14 +117,14 @@ include { assemblies_completeness } from './modules/postqc'
     
     //Pre QC module
 
-    if (params.adapter_filteration){
-        println("Convert bam to fasta thorugh HiFiAdapterFilt. Adapter filteration will be applied!")
+    if (params.adapter_filtration){
+        println("Convert bam to fasta thorugh HiFiAdapterFilt. Adapter filtration will be applied!")
         hifiadapterfilter(ch_bam)
         ch_bam2fastaName = hifiadapterfilter.out[1]
         ch_bam2fastafile = hifiadapterfilter.out.map{[it[0], it[1]]}
         ch_assembly_input = hifiadapterfilter.out.map{it[0]}
     }else{
-        println("Convert bam to fasta thorugh samtools. No adapter filteration!")
+        println("Convert bam to fasta thorugh samtools. No adapter filtration!")
         // Parsing bam to fasta  - Default behaviur 
         ch_assembly_input = ch_bam
         bam2fasta( ch_bam )

@@ -71,15 +71,4 @@ hifi_assembly.nf --bam_folder <PATH_TO_BAM_FOLDER> -profile if89
 ```
 
 
-### Example local profile usage
 
-```
-Start a screen, submit a job, and run the workflow 
-Screen -S ‘name’
-qsub -I -qnormal -Pwz54 -lwalltime=48:00:00,ncpus=4,mem=200GB,storage=scratch/wz54+gdata/wz54,wd
-export MODULEPATH=/apps/Modules/modulefiles:/g/data/wz54/groupResources/modules
-module load nextflow/21.04.3
-nextflow run /g/data/wz54/groupResources/scripts/pl/hifi_assembly.nf  --bam_folder  <bam-folder_path> -profile local
-This load the scripts directory to the environmental PATH and load nextflow module
-module load hifi_assembly/1.0.0 
-```
