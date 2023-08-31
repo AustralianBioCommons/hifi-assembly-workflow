@@ -11,7 +11,7 @@ Please refer to the following documentation for detailed description of each wor
 
 ## General recommendations 
 
-A more detailed module and workflow description as well as execution examples on Gadi and Setonix are [available here](workflows.md).
+A more detailed module and workflow description as well as execution examples on Gadi and Setonix are [available here](https://australianbiocommons.github.io/hifi-assembly-workflow/workflows).
 
 
 ## Attributions
