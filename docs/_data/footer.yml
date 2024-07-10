@@ -5,7 +5,7 @@ columns:
   - type: image
     image_width: 120px
     width: 3
-    src: 'assets/img/main_logo.png'
+    src: 'assets/img/Australian-Biocommons-Logo-Horizontal-RGB.png'
     alt: Australian BioCommons Logo
   - type: links
     width: 3
