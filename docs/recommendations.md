@@ -13,8 +13,8 @@ The guide is split between the 3 core elements of the workflow: these being pre-
 ## Accessing this workflow
 
 This workflow is:
-- currently operational on the Gadi HPC at the National Computational Infrastructure (NCI),
-- [registered on WorkflowHub](https://workflowhub.eu/workflows/340),
+- Operational on the Gadi HPC at the National Computational Infrastructure (NCI)
+- [Registered on WorkflowHub](https://workflowhub.eu/workflows/340)
 
 
 ## Stage 1: Adapter filtration and pre-assembly quality control
