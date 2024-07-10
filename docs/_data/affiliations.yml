@@ -11,7 +11,7 @@
 ### add new affiliations below as needed
 
 - name: Australian BioCommons
-  image_url: /assets/img/main_logo.png
+  image_url: /assets/img/Australian-Biocommons-Logo-Horizontal-RGB.png
   expose: true
   type: infrastructure
   url: https://www.biocommons.org.au/
